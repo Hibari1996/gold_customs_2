@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!--bootstrap响应式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>金关二期海关端</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/src/bootstrap-2.3.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/src/bootstrap-2.3.2/css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/src/DataTables/DataTables-1.10.16/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/src/DataTables/Select-1.2.5/css/select.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/src/zTree-v3/zTreeStyle/zTreeStyle.css"/>
+
+    <script type="text/javascript" src="/static/src/jQuery-1.12.3/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="/static/src/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/src/DataTables/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/static/src/DataTables/Select-1.2.5/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="/static/src/zTree-v3/jquery.ztree.all.min.js"></script>
+
+</head>
+<body style="width: 1366px;">
+<!--bootstrap栅格-->
+<div class="row-fluid jgHead">
+    <div class="span8 offset1 jgTitle">
+        <h4>天 津 海 关 特 殊 监 管 区 域 金 关 二 期 对 接 系 统 <span class="jgHg">海关端</span></h4>
+        <h5>Tianjin Customs Special Supervision Region Jinguan Phase II Docking System</h5>
+    </div>
+    <div class="span1 jgTitle"></div>
+</div>
+<div class="row-fluid">
+    <div class="span2 jgMenu">
+        <!--信息面板-->
+        <div class="alert alert-info jgPanel" style="font-size: 10px">
+            <div>
+                <ul style="margin: 0">
+                    <li>
+                        <span>所属区域：</span>
+                        <span>保税区海港</span>
+                    </li>
+                    <li>
+                        <span>科室：</span>
+                        <span>物流监管科</span>
+                    </li>
+                    <li>
+                        <span>工号：</span>
+                        <span>0208123456</span>
+                    </li>
+                    <li>
+                        <span>姓名：</span>
+                        <span>小明</span>
+                    </li>
+                    <li style="text-align: center; margin-top: 5px">
+                        <button class="btn btn-small btn-danger" type="button">退出</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--menu-->
+        <ul class="nav nav-tabs nav-stacked mainMenu">
+            <li><a href="/"><i class="icon-home"></i>首页</a></li>
+            <li class="active"><a href="nonprotect"><i class="icon-list-alt"></i>非保业务</a></li>
+            <li><a href="#"><i class="icon-list"></i>跨境电商业务</a></li>
+            <li><a href="#"><i class="icon-search"></i>统计查询</a></li>
+            <li><a href="#"><i class="icon-cog"></i>参数配置</a></li>
+        </ul>
+    </div>
+    <div class="span10" style="margin: 0!important;">
+        <!--面包屑导航-->
+        <ul class="breadcrumb">
+            <li><a href="/">首页</a> <span class="divider">/</span></li>
+            <li><a href="nonprotect">非保业务</a> <span class="divider">/</span></li>
+            <li class="active">关区区域关联</li>
+        </ul>
+        <div class="row-fluid">
+            <div class="span4" style="margin-left: 20px">
+                <a href="/areaAssociate" class="btn btn-default">科室配置</a>
+                <a href="/areaAssociateRy" class="btn btn-primary">人员配置</a>
+            </div>
+        </div>
+        <!---->
+        <hr/>
+        <!---->
+        <div class="container-fluid">
+
+            <div class="row-fluid">
+                <div class="span4">
+                    <button type="button" id="ryGlpzBtn" data-toggle="modal" data-target="#areaModal" class="btn btn btn-success">关联配置</button>
+                    <button id="ryRefresh" type="button" class="btn btn btn-success">刷新</button>
+                </div>
+            </div>
+            <!--模态框-->
+            <div id="areaRyModal" class="modal hide fade" style="width: 60%; left: 40%">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3>人员区域关联配置</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row-fluid">
+                        <div class="span2 text-right">关区代码：</div>
+                        <div id="areaCodeRy" class="span2"></div>
+                        <!---->
+                        <div class="span2 text-right">关区名称：</div>
+                        <div id="areaNameRy" class="span2"></div>
+                        <!---->
+                        <div class="span2 text-right">区域代码：</div>
+                        <div id="regionCodeRy" class="span2"></div>
+                    </div>
+                    <!---->
+                    <div class="row-fluid">
+                        <div class="span2 text-right">区域名称：</div>
+                        <div id="regionNameRy" class="span2"></div>
+                        <!--隐藏域-->
+                        <div class="span4" style="display: none">
+                            <div id="idRy" class="span2"></div>
+                            <div id="tokenRy" class="span2"></div>
+                        </div>
+                    </div>
+                    <!---->
+                    <hr/>
+                    <!--树-->
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <ul id="ryzTree" class="ztree"></ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer" style="text-align: center">
+                    <button id="rySave" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+            <!---->
+            <hr/>
+            <!---->
+            <div class="row-fluid">
+                <!---->
+                <div class="span2 text-right">人员编号：</div>
+                <div class="span2">
+                    <input id="rybhSearch" type="text" class="input-medium" placeholder="">
+                </div>
+                <!---->
+                <div class="span2 text-right">人员名称：</div>
+                <div class="span2">
+                    <input id="rymcSearch" type="text" class="input-medium" placeholder="">
+                </div>
+                <!---->
+                <div class="span2">
+                    <button type="button" id="rySearchBtn" class="btn btn-primary">查询</button>
+                </div>
+            </div>
+            <!---->
+            <hr/>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="tabbable tabs-left">
+                        <h4>选择关区区域</h4>
+                        <ul id="selectRyTab" class="nav nav-tabs">
+                            <!--tab菜单-->
+                        </ul>
+                        <!---->
+                        <div class="tab-content">
+                            <div class="tab-pane active">
+                                <table id="areaRyTable" class="display table table-bordered table-striped table-hover"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script language="javascript">
+    var host = 'http://localhost:8071/';
+    var selectGqID;
+
+    //------------------------查询关区区域列表------------------------------
+
+    searchGqqy();
+
+    function searchGqqy() { //查询关区区域list；
+        $.ajax({
+            type: 'GET',
+            url: host + 'area/areaList',
+            success: function (data) {
+                console.log(data);
+                var dataObj = JSON.parse(data);
+                var initID = dataObj[0]["id"]; //默认选中第一个ID；
+                console.log(initID);
+                searchTableRy(initID); //人员
+
+                for(var i=0; i<dataObj.length; i++){
+
+                    //-------------------人员tab栏----------------------
+                    $('#selectRyTab').append(
+                        '<li><a onclick="selectGqqyID('+ dataObj[i].id +')">' + dataObj[i].areaName +'</a></li>'
+                    );
+                    $('#selectRyTab :first-child').addClass('active');
+
+
+                    $('#selectRyTab').find('a').click(function (e) {
+                        $(this).parent('li').addClass('active');
+                        $(this).parent('li').siblings('li').removeClass('active');
+
+                    });
+
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    }
+
+
+    //-------------------------选择的关区区域的ID----------------------
+    function selectGqqyID(id) {
+        console.log(id);
+        selectGqID = id;
+        searchTableRy(selectGqID); //人员
+
+    }
+
+    function deleteRyRow(id) {
+        console.log(id);
+        $.ajax({
+            type: 'GET',
+            url: host + 'relation/user/delete/'+ id,
+            success: function (data) {
+                console.log(data);
+                alert('删除成功');
+                searchTableRy(id);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        // 删除的函数
+    }
+
+    //--------------------人员搜索按钮------------------------
+
+    $('#rySearchBtn').click(function () {
+        console.log(selectGqID);
+        searchTableRy(selectGqID);
+    });
+
+    $('#ryRefresh').click(function () { //人员刷新按钮
+        console.log(selectGqID);
+        searchTableRy(selectGqID);
+    });
+
+    function searchTableRy(id) {
+        $.ajax({
+            type: 'GET',
+            url: host + 'relation/userList?districtAreaId=' + id + '&userName=' + $('#rymcSearch').val() + '&userCode=' + $('#rybhSearch').val(),
+            success: function (data) {
+                console.log(data);
+                var dataObj = JSON.parse(data);
+                renderRyTable(dataObj);
+
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    }
+
+    //----------------------人员table--------------------------
+
+
+    function renderRyTable(dataObj) { //渲染人员table
+        if ($('#areaRyTable').hasClass('dataTable')) { //刷新表格
+            var tableData;
+            tableData = $('#areaRyTable').dataTable();
+            tableData.fnClearTable(); //清空一下table
+            tableData.fnDestroy(); //还原初始化了的datatable
+        }
+        $('#areaRyTable').DataTable({
+            data: dataObj,
+            columns: [
+                { title: '人员', data: 'userName' },
+                { title: '工号', data: 'userCode' },
+                { title: '维护时间', data: 'optDate' }
+            ],
+            "columnDefs" : [ {
+                "title": '操作',
+                "targets" : 3,//操作按钮目标列
+                "data" : null,
+                "render" : function(data, type, row) {
+                    var id = '"' + row.id + '"';
+                    var html = "<button onclick='deleteRyRow("+ id + ")' class='editID btn btn-success btn-xs'>删除</buttonid>";
+
+                    return html;
+                }
+            } ],
+            "bAutoWidth": false,
+            "paging": true,
+            "searching": false,
+            "bLengthChange": false,
+            "ordering": false,
+            processing: false,
+            language: {
+                "sProcessing": "处理中...",
+                "sLengthMenu": "显示 _MENU_ 项结果",
+                "sZeroRecords": "没有匹配结果",
+                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                "sInfoPostFix": "",
+                "sSearch": "搜索:",
+                "sUrl": "",
+                "sEmptyTable": "表中数据为空",
+                "sLoadingRecords": "载入中...",
+                "sInfoThousands": ",",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
+                },
+                "oAria": {
+                    "sSortAscending": ": 以升序排列此列",
+                    "sSortDescending": ": 以降序排列此列"
+                }
+            }
+        });
+    }
+
+
+//-----------------------------------人员树--------------------------
+    function ryzTree() { //科室树
+        console.log('display');
+
+        var loadUrl = host+"/relation/user/query";
+
+        var zTreeObj;
+        var setting = {
+            async: {
+                enable: true,
+                url: loadUrl,
+                autoParam:["id", "name=n", "level=lv"],
+                dataFilter: filter
+            },
+            view: {
+                fontCss: {color: '#337ab7'},
+                check: {chkStyle: 'checkbox'}
+            },
+            check: {
+                autoCheckTrigger: true,
+                chkboxType: { "Y": "", "N": "" },
+                enable: true,
+                chkStyle: "checkbox",
+                nocheckInherit: true,
+                chkDisabledInherit: true,
+                radioType: "all"
+            }
+        };
+
+        function filter(treeId, parentNode, childNodes) {
+            if (!childNodes) return null;
+            for (var i=0, l=childNodes.length; i<l; i++) {
+                childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+            }
+            console.log(childNodes);
+            return childNodes;
+        }
+
+        zTreeObj = $.fn.zTree.init($("#ryzTree"), setting);
+
+    }
+
+    $("#rySave").click(function () {
+        var zTreeObj=$.fn.zTree.getZTreeObj("ryzTree");
+        var sNodes = zTreeObj.getSelectedNodes();
+        var checkedNodes = zTreeObj.getCheckedNodes();//改变的checked
+        if (checkedNodes.length > 0) {
+            var ids = new Array();
+            for(var i =0; i<checkedNodes.length; i++){
+                var tId = checkedNodes[i].infoId;
+                ids.push(tId)
+            }
+            $.ajax({
+                type: 'POST',
+                url: host + 'relation/user/save',
+                data: {
+                    districtAreaId: selectGqID,
+                    userIds:ids.toString()
+                },
+                success: function (data) {
+                    console.log(data.length);
+                    alert('保存成功！');
+                    $('#areaRyModal').modal('hide');
+                    searchTableRy(selectGqID);
+
+                }
+            })
+        }
+    }); //保存树
+
+
+    //----------------------------人员关联配置------------------------------
+
+    $('#ryGlpzBtn').click(function () { // 编辑
+        console.log(selectGqID);
+        ajaxRyGlPz(selectGqID);
+
+        $('#areaRyModal').modal({ keyboard: false, backdrop: 'static' }).on('shown', function (){
+
+        });
+    });
+
+    function ajaxRyGlPz(id) { //新建获取token
+        $.ajax({
+            type: 'GET',
+            url: host + 'relation/user/create/?districtAreaId=' + id,
+            success: function (data) {
+                console.log(data);
+                var dataBind = data.districtAreaRelation;
+                $('#areaCodeRy').html(dataBind.areaCode);
+                $('#areaNameRy').html(dataBind.areaName);
+                $('#regionCodeRy').html(dataBind.regionCode);
+                $('#regionNameRy').html(dataBind.regionName);
+                $('#idRy').html(id);
+                $('#tokenRy').html(data.token);
+
+                ryzTree();
+
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    }
+
+
+</script>
+</body>
+</html>

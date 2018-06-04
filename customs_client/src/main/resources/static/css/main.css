@@ -1,0 +1,48 @@
+/**/
+/*head*/
+.jgHead{
+    height: 100px;
+    background-color: #126BFB;
+}
+.jgTitle{
+    color: white;
+    margin-top: 15px;
+}
+.jgHg{
+    margin-left: 8px;
+    font-size: 12px;
+}
+/*菜单*/
+.jgMenu{
+    height: 700px;
+    background-color: #d1d1d1;
+}
+.mainMenu li a{
+    line-height: 25px!important;
+}
+
+.mainMenu li a i{
+    margin-left: 25px;
+    margin-right: 15px;
+}
+
+/*消息面板*/
+.jgPanel{
+    margin: 10px;
+}
+.panelHead{
+    height: 40px;
+    color: white;
+    border-bottom: 1px solid white;
+}
+.panelHead h4{
+    line-height: 40px!important;
+}
+.panelBody{
+    padding-top: 20px;
+}
+.panelBody ul li a{
+    color: white;
+}
+
+/*模态框*/

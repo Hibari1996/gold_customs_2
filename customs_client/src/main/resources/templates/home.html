@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!--bootstrap响应式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>金关二期海关端</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/src/bootstrap-2.3.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/src/bootstrap-2.3.2/css/bootstrap-responsive.min.css"/>
+
+    <script type="text/javascript" src="/static/src/jQuery-1.12.3/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="/static/src/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body style="width: 1366px;">
+    <!--bootstrap栅格-->
+    <div class="row-fluid jgHead">
+        <div class="span8 offset1 jgTitle">
+            <h4>天 津 海 关 特 殊 监 管 区 域 金 关 二 期 对 接 系 统 <span class="jgHg">海关端</span></h4>
+            <h5>Tianjin Customs Special Supervision Region Jinguan Phase II Docking System</h5>
+        </div>
+        <div class="span1 jgTitle"></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span2 jgMenu">
+            <!--信息面板-->
+            <div class="alert alert-info jgPanel" style="font-size: 10px">
+                <div>
+                    <ul style="margin: 0">
+                        <li>
+                            <span>所属区域：</span>
+                            <span>保税区海港</span>
+                        </li>
+                        <li>
+                            <span>科室：</span>
+                            <span>物流监管科</span>
+                        </li>
+                        <li>
+                            <span>工号：</span>
+                            <span>0208123456</span>
+                        </li>
+                        <li>
+                            <span>姓名：</span>
+                            <span>小明</span>
+                        </li>
+                        <li style="text-align: center; margin-top: 5px">
+                            <button class="btn btn-small btn-danger" type="button">退出</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--menu-->
+            <ul class="nav nav-tabs nav-stacked mainMenu">
+                <li class="active"><a href="/"><i class="icon-home"></i>首页</a></li>
+                <li><a href="nonprotect"><i class="icon-list-alt"></i>非保业务</a></li>
+                <li><a href="#home"><i class="icon-list"></i>跨境电商业务</a></li>
+                <li><a href="#home"><i class="icon-search"></i>统计查询</a></li>
+                <li><a href="#home"><i class="icon-cog"></i>参数配置</a></li>
+            </ul>
+        </div>
+        <!--<div class="span10" style="margin: 0!important;">-->
+            <!--&lt;!&ndash;面包屑导航&ndash;&gt;-->
+            <!--<ul class="breadcrumb">-->
+                <!--<li><a href="#">首页</a></li>-->
+            <!--</ul>-->
+            <!--&lt;!&ndash;模块&ndash;&gt;-->
+            <!--&lt;!&ndash;首页&ndash;&gt;-->
+            <!--<div id="home">-->
+                <!--<div class="row-fluid">-->
+                    <!--<div class="span3 offset1">-->
+                        <!--<h3>首页</h3>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;企业信息管理&ndash;&gt;-->
+            <!--<div id="company" class="row-fluid" style="margin-top: 10%; display: none">-->
+                <!--<div class="span5 offset1" style="background-color: #a9dba9; height: 200px">-->
+
+                <!--</div>-->
+                <!--<div class="span5" style="background-color: #fbb450; height: 200px">-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;本地核放单管理&ndash;&gt;-->
+            <!--<div id="approved" style="display: none">-->
+                <!--<h3>本地核放单管理</h3>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;业务申报单管理&ndash;&gt;-->
+            <!--<div id="declare" style="display: none">-->
+                <!--<h3>业务申报单管理</h3>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;非保底账管理&ndash;&gt;-->
+            <!--<div id="bill" style="display: none">-->
+                <!--<h3>非保底账管理</h3>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;查询统计&ndash;&gt;-->
+            <!--<div id="search" style="display: none">-->
+                <!--<h3>查询统计</h3>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;关区区域维护&ndash;&gt;-->
+            <!--<div id="area" class="row-fluid" style="margin-top: 10%; display: none">-->
+                <!--<div class="span5 offset1" style="background-color: #62c462; height: 200px">-->
+                    <!--<div class="panelHead">-->
+                        <!--<h4>&nbsp;&nbsp;关区区域维护</h4>-->
+                    <!--</div>-->
+                    <!--<div class="panelBody">-->
+                        <!--<ul>-->
+                            <!--<li><a href="nonprotect/areaMaintenance.html">关区区域维护</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="span5" style="background-color: #409eff; height: 200px">-->
+                    <!--<div class="panelHead">-->
+                        <!--<h4>&nbsp;&nbsp;关区区域关联</h4>-->
+                    <!--</div>-->
+                    <!--<div class="panelBody">-->
+                        <!--<ul>-->
+                            <!--<li><a href="nonprotect/areaAssociate.html">关区区域关联</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;系统参数设置&ndash;&gt;-->
+            <!--<div id="system" style="display: none">-->
+                <!--<h3>系统参数设置</h3>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</body>
+</html>
