@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<module name="h4aIdentity">
+		<group name="wsCache">
+			<!-- cacheControl 值为off为开启缓存，值为on为关闭缓存 -->
+			<configValue key="cacheControl">on</configValue>
+			<configValue key="cacheTime">300000000</configValue>
+			<configValue key="cacheClearTime">1</configValue>
+			<configValue key="initialDelay">0</configValue>
+			<configValue key="clearCachePeriod">1440</configValue>
+		</group>
+	</module>
+	<module name="passportSSO">
+		<group name="passport">
+			<configValue key="appID">TJSAUCBE</configValue>
+			<configValue key="appSlidingTime">0</configValue>
+			<configValue key="idAuthenticationMode">forms</configValue>
+			<configValue key="paramT">token</configValue>
+			<configValue key="defaultAuthenticationMode">FormsAuthentication</configValue>
+		</group>
+		<group name="url">
+			<configValue key="logoffAutoRedirect">true</configValue>
+			<!-- 默认为/index.jsp 实际地址为应用的相对访问路径，如http://127.0.0.1:8080/default/ssoDemo/demo/testSSOLogin.jsp，应填写为/ssoDemo/demo/testSSOLogin.jsp -->
+			<configValue key="logoffToDefaultUriString">/user.html</configValue><!-- 相当于登录成功后跳转的页面 -->
+			<configValue key="logOffCallBackUrl">/logout.jsp</configValue>
+			<!-- 三统一登录时，如有多个身份，如需选择某个身份登录，选择身份页面配置，例：/sso/selectIdentity.jsp -->
+			<configValue key="select_identity_page"></configValue>
+		</group>
+		<group name="defaultAuthenticationMode">
+			<configValue key="*.jpg">Anonymous</configValue>
+			<configValue key="*.gif">Anonymous</configValue>
+			<configValue key="/anonymous.html">Anonymous</configValue>
+			<configValue key="/WindowsAuthentication/*.jsp">WindowsAuthentication</configValue>
+			<configValue key="/WindowsAuthentication/test*">WindowsAuthentication</configValue>
+		</group>
+		<!-- 不需passport filter拦截的页面在次配置，没有不拦截页面，configValue key="url"的值为空 -->
+		<group name="notInterceptUrl">
+			<!-- start,end,center三种选项，分别对应前匹配、后匹配及全匹配 -->
+			<configValue key="position">center</configValue>
+			<!-- 多个URL，中间使用","分隔 -->
+			<configValue key="url">pass.jsp,passUrl</configValue>
+			<!-- 解密实现方法，继承cn.gov.customs.casp.sdk.h4a.sso.IPassportDecryption -->
+			<configValue key="decryption">com.cst.canic.hgweb.h4aservices.PassportDecryption</configValue>
+		</group>
+	</module>
+	<module name="SSOAddress">
+		<group name="ssoAddress">
+			<!-- 海关三统一IPassportSSO接口实现类相对路径，如不继承IPassportSSO接口则不用填写实现类路径 -->
+			<!-- 如果配置了自己应用的登录登出，可在自己应用中放入个性化登录数据、信息等，如不实现此接口，可使用CADP STUDIO中的userObject对象获取默认放入的基本登录信息 -->
+			<configValue key="PassportManager">com.cst.canic.hgweb.h4aservices.SamplePassportSSO</configValue>
+		</group>
+	</module>
+	<module name="h4a_default">
+		<group name="wcf_default">
+			<configValue key="default_cache_max_capacity">10000</configValue>
+			<configValue key="default_BaseView">TJHG_VIEW</configValue>
+			<configValue key="default_Application_name">APP_ADMIN</configValue>
+		</group>
+		<group name="Intercepter_load_switch">
+			<configValue key="Intercepter_Control">false</configValue>
+		</group>		
+	</module>
+	<module name="object_param">
+		<!-- FrameworkUserInit.initUserObject 中使用的动态配置参数：getBeanObjectsDetail_lastParam为 
+			oguBeanReaderHelper .getBeanObjectsDetail最后一个参数；organizationCategory_lastParam为iOguBeanReader 
+			.getBeanObjectParentOrganizations最后一个参数 -->
+		<group name="parameter_obj">
+			<configValue key="getBeanObjectsDetail_lastParam">PERSON_ID,SIDELINE</configValue>
+			<configValue key="organizationCategory_lastParam">CUSTOMS_CODE,ORG_CLASS</configValue>
+		</group>
+	</module>
+</application>

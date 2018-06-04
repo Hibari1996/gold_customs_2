@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<module name="h4aIdentity">
+		<!-- 海关三统一接口服务地址示例 -->
+		<group name="wsAddress">
+			<configValue key="OguReaderService">http://cupaa.customs.tenv.cst.canic:8010/CupaaCenterService/OguReaderService.svc</configValue>
+			<configValue key="AccreditReaderService">http://cupaa.customs.tenv.cst.canic:8010/CupaaCenterService/AccreditReaderService.svc</configValue>
+			<configValue key="RegisterAppService">http://cupaa-dev/CupaaCenterService/LeaderSecretaryReaderService.svc</configValue>
+		</group>
+	</module>
+	<module name="passportSSO">
+		<!-- 海关三统一单点登录地址示例 -->
+		<group name="url">
+			<configValue key="authenticateUrl">http://cupaa.customs.tenv.cst.canic:8010/Passport/SsoLogin.aspx</configValue>
+			<configValue key="logOffUrl">http://cupaa.customs.tenv.cst.canic:8010/Passport/Logoff.aspx</configValue>
+		</group>
+	</module>
+<!-- 	<module name="h4agis"> -->
+		<!-- 海HGIS地址示例，以下为示例地址。请按照实际环境进行配置 -->
+<!-- 		<group name="gisUrl"> -->
+<!-- 			<configValue key="url">http://localhost:8090/iserver/services/map-world/rest/maps/World -->
+<!-- 			</configValue> -->
+<!-- 			<configValue key="url1">http://localhost:8090/iserver/services/map-world/rest/maps/World1 -->
+<!-- 			</configValue> -->
+<!-- 			<configValue key="url2">http://localhost:8090/iserver/services/map-world/rest/maps/World2 -->
+<!-- 			</configValue> -->
+<!-- 		</group> -->
+		<!-- 海HGIS Token示例，以下为示例地址。请按照实际环境进行配置 -->
+<!-- 		<group name="gisToken"> -->
+<!-- 			<configValue key="token">ak=HF0BeNqiq10x60lo31aU2hAE -->
+<!-- 			</configValue> -->
+<!-- 		</group> -->
+<!-- 	</module> -->
+	<!-- 数据交换（核心）配置 -->
+<!-- 	<module name="hdeConfig"> -->
+<!-- 		<group name="file"> -->
+<!-- 			<configValue key="filetemp">D:\\Software\\SDK\\temp</configValue> -->
+<!-- 			<configValue key="filedestination">D:\\Software\\SDK\\destination -->
+<!-- 			</configValue> -->
+<!-- 		</group> -->
+<!-- 		<group name="webservice"> -->
+<!-- 			<configValue key="wsSoapURL">http://192.168.40.111:4082/exchange/PESITA -->
+<!-- 			</configValue> -->
+<!-- 		</group> -->
+<!-- 		<group name="tonglink"> -->
+<!-- 			<configValue key="tlkHost">192.168.40.138</configValue> -->
+<!-- 			<configValue key="tlkPort">10025</configValue> -->
+<!-- 			<configValue key="tlkFactory">RemoteConnectionFactory</configValue> -->
+<!-- 			<configValue key="tlkQueue">MyQueue</configValue> -->
+<!-- 		</group> -->
+<!-- 		<group name="ibmmq"> -->
+<!-- 			<configValue key="MQProviderURL">file://E:/TERRY/Java_Project/China_Custom/SVN/TestMQJMS/jndi -->
+<!-- 			</configValue> -->
+<!-- 			<configValue key="MQFactory">QCFAxway</configValue> -->
+<!-- 			<configValue key="MQQueue">Q_TEST_IN</configValue> -->
+<!-- 		</group> -->
+<!-- 	</module> -->
+
+	<!-- 工作流配置 -->
+<!-- 	<module name="bpmsdk"> -->
+<!-- 		<group name="bpmserviceconfig"> -->
+<!-- 			<configValue key="url">http://localhost:8088/ubpm-server-rest/service/ -->
+<!-- 			</configValue> -->
+<!-- 		</group> -->
+<!-- 	</module> -->
+</application>
