@@ -16,6 +16,7 @@ import java.util.Date;
  * @date 2018/5/29
  */
 
+
 @Entity
 @Table(name = "M_BASIC_INFO")
 public class BasicInfo implements Serializable {
